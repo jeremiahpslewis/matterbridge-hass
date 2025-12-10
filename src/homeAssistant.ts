@@ -1309,7 +1309,7 @@ export class HomeAssistant extends EventEmitter {
       });
     };
 
-    const url = new URL('/api/core/state', this.wsUrl.replace('ws://', 'http://').replace('wss://', 'https://')).toString();
+    const url = new URL('/api/config', this.wsUrl.replace('ws://', 'http://').replace('wss://', 'https://')).toString();
 
     let retries = 1;
 
