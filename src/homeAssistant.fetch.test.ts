@@ -55,7 +55,7 @@ describe('HomeAssistant.waitForHassRunning', () => {
     await expect(homeAssistant.waitForHassRunning()).resolves.toBe(true);
 
     expect(fetchMock).toHaveBeenCalledWith(
-      'http://localhost:8123/api/core/state',
+      'http://localhost:8123/api/config',
       expect.objectContaining({
         headers: { Authorization: 'Bearer token' },
       }),
@@ -76,7 +76,7 @@ describe('HomeAssistant.waitForHassRunning', () => {
 
     await expect(homeAssistant.waitForHassRunning()).resolves.toBe(true);
 
-    expect(fetchMock).toHaveBeenCalledWith('https://localhost:8123/api/core/state', expect.any(Object));
+    expect(fetchMock).toHaveBeenCalledWith('https://localhost:8123/api/config', expect.any(Object));
 
     const fetchOptions = fetchMock.mock.calls[0]?.[1] as { dispatcher?: unknown; headers?: Record<string, string> };
     expect(fetchOptions?.headers).toEqual({ Authorization: 'Bearer token' });
@@ -101,7 +101,7 @@ describe('HomeAssistant.waitForHassRunning', () => {
 
     await expect(homeAssistant.waitForHassRunning()).resolves.toBe(true);
 
-    expect(fetchMock).toHaveBeenCalledWith('https://localhost:8123/api/core/state', expect.any(Object));
+    expect(fetchMock).toHaveBeenCalledWith('https://localhost:8123/api/config', expect.any(Object));
 
     const fetchOptions = fetchMock.mock.calls[0]?.[1] as { dispatcher?: unknown; headers?: Record<string, string> };
     expect(fetchOptions?.headers).toEqual({ Authorization: 'Bearer token' });
